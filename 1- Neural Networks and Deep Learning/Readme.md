@@ -4,48 +4,49 @@ This is the first course of the deep learning specialization at [Coursera](https
 
 ## Table of contents
 
-* [Neural Networks and Deep Learning](#neural-networks-and-deep-learning)
-   * [Table of contents](#table-of-contents)
-   * [Course summary](#course-summary)
-   * [Introduction to deep learning](#introduction-to-deep-learning)
-      * [What is a (Neural Network) NN?](#what-is-a-neural-network-nn)
-      * [Supervised learning with neural networks](#supervised-learning-with-neural-networks)
-      * [Why is deep learning taking off?](#why-is-deep-learning-taking-off)
-   * [Neural Networks Basics](#neural-networks-basics)
-      * [Binary classification](#binary-classification)
-      * [Logistic regression](#logistic-regression)
-      * [Logistic regression cost function](#logistic-regression-cost-function)
-      * [Gradient Descent](#gradient-descent)
-      * [Derivatives](#derivatives)
-      * [More Derivatives examples](#more-derivatives-examples)
-      * [Computation graph](#computation-graph)
-      * [Derivatives with a Computation Graph](#derivatives-with-a-computation-graph)
-      * [Logistic Regression Gradient Descent](#logistic-regression-gradient-descent)
-      * [Gradient Descent on m Examples](#gradient-descent-on-m-examples)
-      * [Vectorization](#vectorization)
-      * [Vectorizing Logistic Regression](#vectorizing-logistic-regression)
-      * [Notes on Python and NumPy](#notes-on-python-and-numpy)
-      * [General Notes](#general-notes)
-   * [Shallow neural networks](#shallow-neural-networks)
-      * [Neural Networks Overview](#neural-networks-overview)
-      * [Neural Network Representation](#neural-network-representation)
-      * [Computing a Neural Network's Output](#computing-a-neural-networks-output)
-      * [Vectorizing across multiple examples](#vectorizing-across-multiple-examples)
-      * [Activation functions](#activation-functions)
-      * [Why do you need non-linear activation functions?](#why-do-you-need-non-linear-activation-functions)
-      * [Derivatives of activation functions](#derivatives-of-activation-functions)
-      * [Gradient descent for Neural Networks](#gradient-descent-for-neural-networks)
-      * [Random Initialization](#random-initialization)
-   * [Deep Neural Networks](#deep-neural-networks)
-      * [Deep L-layer neural network](#deep-l-layer-neural-network)
-      * [Forward Propagation in a Deep Network](#forward-propagation-in-a-deep-network)
-      * [Getting your matrix dimensions right](#getting-your-matrix-dimensions-right)
-      * [Why deep representations?](#why-deep-representations)
-      * [Building blocks of deep neural networks](#building-blocks-of-deep-neural-networks)
-      * [Forward and Backward Propagation](#forward-and-backward-propagation)
-      * [Parameters vs Hyperparameters](#parameters-vs-hyperparameters)
-      * [What does this have to do with the brain](#what-does-this-have-to-do-with-the-brain)
-   * [Extra: Ian Goodfellow interview](#extra-ian-goodfellow-interview)
+- [Neural Networks and Deep Learning](#Neural-Networks-and-Deep-Learning)
+  - [Table of contents](#Table-of-contents)
+  - [Course summary](#Course-summary)
+  - [Introduction to deep learning](#Introduction-to-deep-learning)
+    - [What is a (Neural Network) NN?](#What-is-a-Neural-Network-NN)
+    - [Supervised learning with neural networks](#Supervised-learning-with-neural-networks)
+    - [Why is deep learning taking off?](#Why-is-deep-learning-taking-off)
+  - [Neural Networks Basics](#Neural-Networks-Basics)
+    - [Binary classification](#Binary-classification)
+    - [Logistic regression](#Logistic-regression)
+    - [Logistic regression cost function](#Logistic-regression-cost-function)
+    - [Gradient Descent](#Gradient-Descent)
+    - [Derivatives](#Derivatives)
+    - [More Derivatives examples](#More-Derivatives-examples)
+    - [Computation graph](#Computation-graph)
+    - [Derivatives with a Computation Graph](#Derivatives-with-a-Computation-Graph)
+    - [Logistic Regression Gradient Descent](#Logistic-Regression-Gradient-Descent)
+    - [Gradient Descent on m Examples](#Gradient-Descent-on-m-Examples)
+    - [Vectorization](#Vectorization)
+    - [Vectorizing Logistic Regression](#Vectorizing-Logistic-Regression)
+    - [Notes on Python and NumPy](#Notes-on-Python-and-NumPy)
+    - [General Notes](#General-Notes)
+  - [Shallow neural networks](#Shallow-neural-networks)
+    - [Neural Networks Overview](#Neural-Networks-Overview)
+    - [Neural Network Representation](#Neural-Network-Representation)
+    - [Computing a Neural Network's Output](#Computing-a-Neural-Networks-Output)
+    - [Vectorizing across multiple examples](#Vectorizing-across-multiple-examples)
+    - [Activation functions](#Activation-functions)
+    - [Why do you need non-linear activation functions?](#Why-do-you-need-non-linear-activation-functions)
+    - [Derivatives of activation functions](#Derivatives-of-activation-functions)
+    - [Gradient descent for Neural Networks](#Gradient-descent-for-Neural-Networks)
+    - [Random Initialization](#Random-Initialization)
+    - [Assignment Planar Data Classification with One Hidden Layer](#Assignment-Planar-Data-Classification-with-One-Hidden-Layer)
+  - [Deep Neural Networks](#Deep-Neural-Networks)
+    - [Deep L-layer neural network](#Deep-L-layer-neural-network)
+    - [Forward Propagation in a Deep Network](#Forward-Propagation-in-a-Deep-Network)
+    - [Getting your matrix dimensions right](#Getting-your-matrix-dimensions-right)
+    - [Why deep representations?](#Why-deep-representations)
+    - [Building blocks of deep neural networks](#Building-blocks-of-deep-neural-networks)
+    - [Forward and Backward Propagation](#Forward-and-Backward-Propagation)
+    - [Parameters vs Hyperparameters](#Parameters-vs-Hyperparameters)
+    - [What does this have to do with the brain](#What-does-this-have-to-do-with-the-brain)
+  - [Extra: Ian Goodfellow interview](#Extra-Ian-Goodfellow-interview)
 
 ## Course summary
 
@@ -564,6 +565,21 @@ Here are the course summary as its given on the course [link](https://www.course
 - We need small values because in sigmoid (or tanh), for example, if the weight is too large you are more likely to end up even at the very start of training with very large values of Z. Which causes your tanh or your sigmoid activation function to be saturated, thus slowing down learning. If you don't have any sigmoid or tanh activation functions throughout your neural network, this is less of an issue.
 
 - Constant 0.01 is alright for 1 hidden layer networks, but if the NN is deep this number can be changed but it will always be a small number.
+
+### Assignment Planar Data Classification with One Hidden Layer
+Steps to build a Neural Network Model
+1. Define the neural network structure
+   - x : \# of input units
+   - h : \# of hidden units
+   - y : \# of output units
+2. Initialize the model's parameters (Refer to [Random Initialization](#random-initialization))
+   - w: weights marices ```np.random.randn((a,b)) * 0.01```
+   - b: ddbias vectos ```np.zeros((a,b))```
+3. [Loop]
+   - Forward Propagation
+   - Compute Loss
+   - Backward Propagation --> get gradients
+   - Update parameters (graduate descent)
 
 ## Deep Neural Networks
 
